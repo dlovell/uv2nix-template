@@ -23,6 +23,11 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+
+    uv2nix_hammer_overrides = {
+      url = "github:TyberiusPrime/uv2nix_hammer_overrides";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +37,7 @@
       uv2nix,
       pyproject-nix,
       pyproject-build-systems,
+      uv2nix_hammer_overrides,
       ...
     }:
     let
@@ -57,6 +63,7 @@
               pyproject-build-systems.overlays.default
               overlay
               pyprojectOverrides
+              (uv2nix_hammer_overrides.overrides pkgs)
             ]
           );
       virtualenv-all = pythonSet.mkVirtualEnv "hello-world-env" workspace.deps.all;
