@@ -166,12 +166,5 @@
         inherit impureShell uv2nixShell;
         default = self.devShells.x86_64-linux.uv2nixShell;
       };
-      templates.x86_64-linux = {
-        baseline = {
-          path = ./templates/baseline;
-          description = "baseline template";
-        };
-      };
-      templates.default = self.templates.x86_64-linux.baseline;
     };
 }
