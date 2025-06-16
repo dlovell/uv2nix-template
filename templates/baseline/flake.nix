@@ -67,7 +67,7 @@
             ]
           );
       virtualenv-all = pythonSet.mkVirtualEnv "hello-world-env" workspace.deps.all;
-      virtualenv-default = pythonSet.mkVirtualEnv "hello-world-env" workspace.deps.all;
+      virtualenv-default = pythonSet.mkVirtualEnv "hello-world-env" workspace.deps.default;
       impureShell = pkgs.mkShell {
         packages = [
           python
